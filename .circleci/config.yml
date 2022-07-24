@@ -105,13 +105,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys: [backend-build]
+          keys: [backend-build]
       - run:
-        name: Frontend audit
-        command: |
-          cd backend
-          npm install
-          npm audit
+          name: Frontend audit
+          command: |
+            cd backend
+            npm install
+            npm audit
 
   scan-backend:
     docker:
@@ -119,13 +119,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys: [backend-build]
+          keys: [backend-build]
       - run:
-        name: Backend audit
-        command: |
-          cd backend
-          npm install
-          npm audit
+          name: Backend audit
+          command: |
+            cd backend
+            npm install
+            npm audit
       # Your job code here
 
 #   deploy-infrastructure:
