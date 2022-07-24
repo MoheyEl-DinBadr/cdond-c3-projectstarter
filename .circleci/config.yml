@@ -73,7 +73,7 @@ jobs:
       - image: cimg/node:13.8.0
     steps:
       - checkout
-      - restore_cache:
+      - restore_cache
         keys: [frontend-build]
       - run:
         name: Frontend-test-run
