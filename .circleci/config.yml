@@ -153,7 +153,7 @@ jobs:
       - slack/notify:
           event: pass
           channel: C03QE4PKYRM
-          template: success_tagged_deployment_1
+          template: success_tagged_deploy_1
 
 #   deploy-infrastructure:
 #     docker:
