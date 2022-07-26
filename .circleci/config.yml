@@ -52,7 +52,8 @@ commands:
     description: Revert the last migration if successfully run in the current workflow.
     parameters:
       Workflow_ID:
-        type: string    
+        type: string
+        default: ${CIRCLE_WORKFLOW_ID:0:7} 
     steps:
       - run:
           name: Revert migrations
@@ -267,6 +268,7 @@ jobs:
               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d 1\
             fi
       - destroy-environment
+      - revert-migrations
       - notify_on_failure         
      # Here's where you will add some code to rollback on failure      
 
