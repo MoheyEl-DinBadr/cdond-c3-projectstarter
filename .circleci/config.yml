@@ -250,7 +250,7 @@ jobs:
     steps:
       # Checkout code from git
       - checkout
-      - install awscli
+      - install_aws_cli
       - run:
           name: Run migrations
           command: |
