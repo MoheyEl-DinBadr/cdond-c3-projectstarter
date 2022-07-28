@@ -263,6 +263,7 @@ jobs:
           name: Send migration results to memstash
           command: |
             # Your code here
+            grep -q
             if grep -q "Run Successfully." || "No migrations are pending" ~/project/backend/migrations_dump.txt
             then
               printenv KVDB_BUCKET
