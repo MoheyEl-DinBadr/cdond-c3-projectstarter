@@ -263,7 +263,7 @@ jobs:
           name: Send migration results to memstash
           command: |
             # Your code here
-            if gep -q "Run Successfully." ~/project/backend/migrations_dump.txt
+            if grep -q "Run Successfully." ~/project/backend/migrations_dump.txt
             then
               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             fi
