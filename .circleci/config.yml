@@ -269,6 +269,7 @@ jobs:
               printenv KVDB_BUCKET
               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             elif (($last_line=="No migrations are pending"))
+            then
               printenv KVDB_BUCKET
               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             else
