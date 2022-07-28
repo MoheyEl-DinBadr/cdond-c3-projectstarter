@@ -264,10 +264,11 @@ jobs:
           command: |
             # Your code here
             tail -n 1 backend/migrations_dump.txt
-            if grep -q "Run Successfully." || "No migrations are pending" backend/migrations_dump.txt
+            if grep -q "Run Successfully." backend/migrations_dump.txt
             then
               printenv KVDB_BUCKET
               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
+            elif grep -q "No migrations are pending" backend/migrations_dump.txt
             else
               exit 1  
             fi
