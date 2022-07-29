@@ -4,7 +4,11 @@
   shell: |
     curl -fsSL https://deb.nodesource.com/setup_13.x | bash -
     apt install -y npm
-    
+
+- name: "Install PM2"    
+  become: true
+  shell: |
+    npm install pm2 -g
 - name: "Create backend directory"
   file:
     path: ~/backend-app
