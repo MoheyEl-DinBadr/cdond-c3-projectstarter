@@ -75,8 +75,7 @@ commands:
           name: Install Node.js 13
           command: |
             curl -fsSL https://deb.nodesource.com/setup_13.x | sudo -E bash -
-            sudo apt install nodejs -y
-            sudo apt install npm -y
+            sudo apt install -y nodejs
             
 jobs:
   build-frontend:
