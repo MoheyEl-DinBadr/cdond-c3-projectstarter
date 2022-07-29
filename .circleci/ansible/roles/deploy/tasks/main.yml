@@ -1,9 +1,4 @@
 ---
-- name: "Install npm"
-  become: true
-  shell: |
-    curl -fsSL https://deb.nodesource.com/setup_13.x | bash -
-    apt install -y nodejs
 - name: "Create backend directory"
   file:
     path: ~/backend-app
@@ -15,7 +10,7 @@
 - name: "Installing Node dependencies"
   shell: |
     cd ~/backend-app
-    npm i        
+    npm i
 - name: "Executing Node app with PM2"
   shell: |
     cd ~/backend-app/dist
