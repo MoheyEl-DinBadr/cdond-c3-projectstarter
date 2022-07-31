@@ -469,7 +469,7 @@ jobs:
               --stack-status-filter CREATE_COMPLETE \
               --no-paginate --output text)) #put the list of stacks here
               echo $OldWorkflowID
-              echo $STACKS
+              echo Stack Names: "${STACKS[@]}"
       - run:
           name: Remove old stacks and files
           command: |
