@@ -267,6 +267,7 @@ jobs:
             # Your code here
             cd backend
             npm install
+            cd src/migrations
             npm run migrations > migrations_dump.txt
             echo migrations_dump.txt
       - run:
