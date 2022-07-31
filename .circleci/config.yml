@@ -65,6 +65,7 @@ commands:
             then 
               cd ~/project/backend
               npm install
+              cd src/migrations
               npm run migrations:revert
             fi
             
