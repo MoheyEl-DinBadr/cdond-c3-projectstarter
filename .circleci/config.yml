@@ -458,21 +458,17 @@ jobs:
     steps:
       # Checkout code from git
       - checkout
-      - install_aws_cli
+      - install_aws_cli            
       - run:
-          name: Get old stack workflow id
+          name: Remove old stacks and files
           command: |
-            # your code here
             export OldWorkFlowID=$(curl --insecure https://kvdb.io/${KVDB_BUCKET}/old_workflow_id)
             export STACKS=($(aws cloudformation list-stacks \
               --query "StackSummaries[*].StackName" \
               --stack-status-filter CREATE_COMPLETE \
               --no-paginate --output text)) #put the list of stacks here
-              echo $OldWorkFlowID
-              echo Stack Names: "${STACKS[@]}"
-      - run:
-          name: Remove old stacks and files
-          command: |
+            echo $OldWorkFlowID
+            echo Stack Names: "${STACKS[@]}"
             if [[ "${STACKS[@]}" =~ "${OldWorkFlowID}" ]]
             then
               # your code here
@@ -480,7 +476,7 @@ jobs:
               aws cloudformation delete-stack --stack-name udapeople-backend-${OldWorkFlowID}
               aws cloudformation delete-stack --stack-name udapeople-frontend-${OldWorkFlowID}
             fi
-            
+
             
 
 workflows:
