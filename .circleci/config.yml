@@ -449,7 +449,7 @@ jobs:
       - destroy-environment
       - revert-migrations
       - notify_on_failure
-cleanup:
+  cleanup:
     docker:
       # Docker image here
       - image: cimg/base:stable
@@ -507,7 +507,9 @@ workflows:
       - smoke-test:
           requires: [deploy-backend, deploy-frontend]  
       - cloudfront-update:
-          requires: [smoke-test]          
+          requires: [smoke-test]    
+      - cleanup:
+          requires: [cloudfront-update]          
       - notify-on-success:
           requires:
             - build-frontend
@@ -523,6 +525,4 @@ workflows:
             - deploy-backend
             - smoke-test
             - cloudfront-update
-      
-      # - cleanup:
-      #     requires: [cloudfront-update]
+            - cleanup
