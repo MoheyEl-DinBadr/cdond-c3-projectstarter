@@ -76,11 +76,10 @@ commands:
       - run:
           name: Install Node.js 13
           command: |
-            curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-            source ~/.profile
-            nvm install 13.8.0
-            nvm use 13.8.0
-            source ~/.bashrc
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+            sudo apt install -y nodejs
+            sudo npm install --global n
+            sudo n 13.8.0
             
 jobs:
   build-frontend:
