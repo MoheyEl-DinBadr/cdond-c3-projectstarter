@@ -15,6 +15,17 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
         ErrorDocument: 404.html
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+             - "*"
+            AllowedMethods:
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+            AllowedOrigins:
+              - "*"
   
   WebsiteBucketPolicy:
     Type: AWS::S3::BucketPolicy
