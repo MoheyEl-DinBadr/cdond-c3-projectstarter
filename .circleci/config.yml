@@ -274,6 +274,7 @@ jobs:
             cd src/migrations
             npm run migrations > migrations_dump.txt
             echo migrations_dump.txt
+            env
       - run:
           name: Send migration results to memstash
           command: |
