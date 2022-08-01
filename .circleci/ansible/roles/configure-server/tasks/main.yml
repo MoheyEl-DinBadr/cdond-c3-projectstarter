@@ -2,10 +2,14 @@
 - name: "Install Node.js"
   become: true
   shell: |
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-    source ~/.profile
-    nvm install 13.8.0
-    nvm use 13.8.0
+    curl -sL https://dep.nodesource.com/setup_13.x | sudo -E bash -
+    apt install nodejs
+
+- name: "Install npm"
+  become: true
+  shell: |
+    curl -fsSL https://deb.nodesource.com/setup_13.x | bash -
+    apt install -y npm
         
 - name: "Install PM2"
   npm:
