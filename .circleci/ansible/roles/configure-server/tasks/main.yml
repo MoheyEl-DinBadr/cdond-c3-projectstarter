@@ -2,7 +2,9 @@
 - name: "Install Node.js"
   become: true
   shell: |
+    
     curl -sL https://dep.nodesource.com/setup_13.x | bash -
+    apt update
     apt install nodejs
 
 - name: "Install npm"
