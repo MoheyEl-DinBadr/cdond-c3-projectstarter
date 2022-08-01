@@ -7,6 +7,14 @@
     nvm install 13.8.0
     nvm use 13.8.0
     source ~/.bashrc
+
+- name: "Install npm"
+  become: true
+  apt:
+    name: ["npm"]
+    state: latest
+    update_cache: yes    
+
     
 - name: "Install PM2"
   npm:
