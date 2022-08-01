@@ -1,4 +1,4 @@
-----
+---
 - name: "Install Node.js"
   become: true
   shell: |
