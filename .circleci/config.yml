@@ -276,7 +276,7 @@ jobs:
           name: Send migration results to memstash
           command: |
             # Your code here
-            last_line=$(tail -n 1 backend/src/migrations/migrations_dump.txt)
+            last_line=$(tail -n 1 backend/migrations_dump.txt)
             echo $last_line
             curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             # if [$last_line == "Run Successfully."];
