@@ -1,0 +1,5 @@
+GithubRepo: https://github.com/MoheyEl-DinBadr/cdond-c3-projectstarter
+S3: http://udapeople-6498446.s3-website-us-east-1.amazonaws.com
+Cloudfront: http://d2irrhbnk7e3cp.cloudfront.net/#/employees
+BackendEC2InstanceDNS: ec2-3-232-188-73.compute-1.amazonaws.com
+PrometheusEC2Instance: ec2-54-89-75-38.compute-1.amazonaws.com
