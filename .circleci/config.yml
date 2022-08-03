@@ -270,7 +270,7 @@ jobs:
           command: |
             # Your code here
             cd backend
-            npm install typescript -g
+            npm install typescript
             
             echo TYPEORM_CONNECTION=$TYPEORM_CONNECTION >> ".env"
             echo TYPEORM_ENTITIES=$TYPEORM_ENTITIES >> ".env"
