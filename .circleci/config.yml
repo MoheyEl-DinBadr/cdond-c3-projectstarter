@@ -270,6 +270,8 @@ jobs:
           command: |
             # Your code here
             cd backend
+            sudo npm install typescript -g
+            sudo npm install ts-node -g
             npm install
             npm run migrations > migrations_dump.txt
             cat migrations_dump.txt
