@@ -169,10 +169,9 @@ jobs:
 
   scan-backend:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:13.8.0
     steps:
       - checkout
-      - install_nodejs
       - restore_cache:
           keys: [backend-build]
       - run:
