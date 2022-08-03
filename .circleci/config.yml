@@ -293,16 +293,15 @@ jobs:
             # Your code here
             last_line=$(tail -n 1 backend/migrations_dump.txt)
             echo $last_line
-            curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
-            # if [$last_line == "Run Successfully."];
-            # then
-            #   curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
-            # elif [$last_line == "No migrations are pending"];
-            # then
-            #   curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
-            # else
-            #   exit 1  
-            # fi
+             if [$last_line == "Run Successfully."];
+             then
+               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
+             elif [$last_line == "No migrations are pending"];
+             then
+               curl https://kvdb.io/${KVDB_BUCKET}/migration_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
+             else
+               exit 1  
+             fi
       - destroy-environment
       - revert-migrations
       - notify_on_failure         
@@ -415,7 +414,7 @@ jobs:
             export API_URL=http://${BACKEND_IP}:3030
             if curl -s $API_URL/api/status | grep "ok"
             then 
-              exit 1
+              exit 0
             else
               exit 1
             fi
