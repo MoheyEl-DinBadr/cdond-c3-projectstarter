@@ -79,7 +79,6 @@ commands:
             sudo apt install -y nodejs
             sudo npm install --global n
             sudo n 13.8.0
-            npm install typescript -g
             
 jobs:
   build-frontend:
